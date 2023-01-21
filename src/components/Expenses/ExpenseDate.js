@@ -6,10 +6,10 @@ const ExpenseDate = Props => {
     const year = Props.date.getFullYear();
 
     return(
-        <div class="expense-date">
-            <div class="expense-date__month">{month}</div>
-            <div class="expense-date__year">{year}</div>
-            <div class="expense-date__day">{date}</div>
+        <div className="expense-date">
+            <div className="expense-date__month">{month}</div>
+            <div className="expense-date__year">{year}</div>
+            <div className="expense-date__day">{date}</div>
         </div>
     );
 
