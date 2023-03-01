@@ -23,4 +23,4 @@ const ExpensesFilter = (Props) => {
   );
 };
 
-export default ExpensesFilter;
+export default ExpensesFilter;  
