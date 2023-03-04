@@ -20,7 +20,6 @@ const Expenses = (Props) => {
     
     return (
     <div>
-          
         <Card className="expenses">
         <ExpensesFilter  selected={filteredYear} Filter={filterChangeHandler}/>
         <ExpensesList expenses = {filteredExpenses}/>

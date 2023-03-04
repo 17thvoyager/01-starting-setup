@@ -9,38 +9,27 @@ const NewExpense = (Props) => {
             id: Math.random().toString()
         }
         Props.onAddExpense(expeneseData);
+        setIsEditing(false);
+
     }
 
-    const [AddNewExpense,setAddNewExpense] = useState(false);
+    const[isEditing,setIsEditing] = useState(false);
 
-    function buttonPressed () {
-        setAddNewExpense(true);
+    const startEditingHandler = () => {
+        setIsEditing(true)
     }
 
-    function cancelButtonCall () {
-        setAddNewExpense(false);
+    const stopEditingHandler = () => {
+        setIsEditing(false);
     }
 
-    let NewExpenseCard;
-
-    if(AddNewExpense) {
-
-         NewExpenseCard = ( <ExpenseForm 
-            onSaveExpenseData={saveExpenseDataHandler} 
-            cancelButtonAttribute={cancelButtonCall}/> )
-    }
-
-    else {
-
-        NewExpenseCard = <button type="submit" onClick={buttonPressed}>Add New Expense</button>
-    }
 
 
     return (
         <div className="new-expense">
-            {NewExpenseCard}
+            {!isEditing && <button onClick={startEditingHandler}>Add New Expense</button>}
+            {isEditing && <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} onCancel={stopEditingHandler}/>}
         </div>
-        
     )
 }
 
